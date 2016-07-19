@@ -1,14 +1,15 @@
 (function() {
   /**
    * @constructor TunnelsGame An instance of the Tunnels game.
-   * @param {HTMLCanvasElement} canvas The canvas to render the game on.
-   * @param {LevelPlan} levelPlans The plans for the levels.
+   * @param {canvas: HTMLCanvasElement} elements
+   *  The canvas argument is canvas to render the game on. TODO -- document other elements.
+   * @param {Array.<LevelPlan>} levelPlans The plans for the levels.
    * @param {object=} opt_config Optional game setting configuration.
    */
 
-  function TunnelsGame(canvas, levelPlans, opt_config) {
-    this.canvas = canvas;
-    this.ctx = canvas.getContext('2d');
+  function TunnelsGame(elements, levelPlans, opt_config) {
+    this.canvas = elements.canvas;
+    this.ctx = this.canvas.getContext('2d');
     this.levelPlans = levelPlans;
     this.config = opt_config || this.config;
 
@@ -55,5 +56,9 @@
       this.canvas.style.left = 0;
       this.canvas.style.top = ((remainingHeight / 2)|0) + 'px';
     }
+  };
+
+  TunnelsGame.prototype.init = function() {
+
   };
 })();
