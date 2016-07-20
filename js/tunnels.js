@@ -61,4 +61,64 @@
   TunnelsGame.prototype.init = function() {
 
   };
+
+  /**
+   * @constructor GameControls The key codes for which keys to which actions.
+   * @param {up: object=, down: object=, left: object=, right: object=,
+   *   shift: object=, attack1: object=, attack2: object=, action1: object=,
+   *   action2: object=} controls The key data for the controls in the form of
+   *   {key: string, code: number}.
+   */
+  function GameControls(controls) {
+    for (var i in controls) if (i in this) {
+      this[i] = controls[i];
+    }
+  }
+
+  GameControls.prototype = {
+    up: {
+      key: 'w',
+      code: 87
+    },
+
+    down: {
+      key: 's',
+      code: 83
+    },
+
+    left: {
+      key: 'a',
+      code: 65
+    },
+
+    right: {
+      key: 'd',
+      code: 68
+    },
+
+    shift: {
+      key: 'q',
+      code: 81
+    },
+
+    attack1: {
+      key: 'e',
+      code: 69
+    },
+
+    attack2: {
+      key: 'r',
+      code: 82
+    },
+
+    action1: {
+      key: 'f',
+      code: 70
+    },
+
+    action2: {
+      key: 'c',
+      code: 67
+    }
+  };
 })();
