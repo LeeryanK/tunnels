@@ -64,18 +64,30 @@
 
   /**
    * @constructor GameControls The key codes for which keys to which actions.
-   * @param {up: object=, down: object=, left: object=, right: object=,
-   *   shift: object=, attack1: object=, attack2: object=, action1: object=,
-   *   action2: object=} controls The key data for the controls in the form of
+   * @param {up: {key: string, code: number}, down: {key: string, code: number,
+   *   left: {key: string, code: number}, right: {key: string, code: number},
+   *   shift: {key: string, code: number}, attack1: {key: string, code: number},
+   *   attack2: {key: string, code: number}, action1: {key: string, code:
+   *   number}, action2: {key: string, code: number}}
+   *   controls
+   *   The key data for the controls in the form of
    *   {key: string, code: number}.
    */
   function GameControls(controls) {
-    for (var i in controls) if (i in this) {
-      this[i] = controls[i];
+    var i, control, myControl;
+
+    for (i in controls) {
+      control = controls[i];
+
+      if (typeof control.key === 'string' && typeof control.code === 'number') {
+        myControl = this[i] = {};
+        myControl.key = control.key;
+        myControl.code = control.code;
+      }
     }
   }
 
-  GameControls.prototype = {
+  GameControls.leftyControls = {
     up: {
       key: 'w',
       code: 87
@@ -119,6 +131,53 @@
     action2: {
       key: 'c',
       code: 67
+    }
+  };
+
+  GameControls.rightyControls = {
+    up: {
+      key: 'i',
+      code: 73
+    },
+
+    down: {
+      key: 'k',
+      code: 75
+    },
+
+    left: {
+      key: 'j',
+      code: 74
+    },
+
+    right: {
+      key: 'l',
+      code: 76
+    },
+
+    shift: {
+      key: 'p',
+      code: 80
+    },
+
+    attack1: {
+      key: 'u',
+      code: 85
+    },
+
+    attack2: {
+      key: 'y',
+      code: 89
+    },
+
+    action1: {
+      key: 'h',
+      code: 72
+    },
+
+    action2: {
+      key: 'n',
+      code: 78
     }
   };
 })();
