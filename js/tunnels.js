@@ -180,4 +180,12 @@
       code: 78
     }
   };
+
+  /**
+   * @constructor KeyboardInput An object which will hold booleans telling
+   *   whether a key is being pressed.
+   * @param {GameControls} controls The game controls to use.
+  function KeyboardInput(controls) {
+
+  }
 })();
