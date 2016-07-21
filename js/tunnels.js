@@ -69,7 +69,10 @@
   };
 
   TunnelsGame.prototype.init = function() {
+    this.level = 0;
+    this.startButton = this.createButton('Play', function() {
 
+    });
   };
 
   /**
