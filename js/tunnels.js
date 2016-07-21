@@ -187,6 +187,31 @@
    * @param {GameControls} controls The game controls to use.
    */
   function KeyboardInput(controls) {
+    if (!(controls instanceof GameControls)) {
+      throw new TypeError('The controls argument was not a GameControls object.');
+    }
 
+    this.detectors = {};
+
+    function getFunctionToSetAllTriggeredDetectorsTo(value) {
+      return (function(event) {
+        for (var i in controls) {
+          var control = controls[i];
+
+          if (control.keyCode === event.keyCode || control.key === event.key) {
+            this.detectors[i] = value;
+          }
+        }
+      }).bind(this);
+    }
+
+    window.addEventListener('keydown',
+        getFunctionToSetAllTriggeredDetectorsTo(true));
+    window.addEventListener('keyup',
+        getFunctionToSetAllTriggeredDetectorsTo(false));
+
+    for (var i in controls) {
+      this.detectors[i] = false;
+    }
   }
 })();
