@@ -1,18 +1,17 @@
 (function() {
   /**
    * @constructor TunnelsGame An instance of the Tunnels game.
-   * @param {canvas: HTMLCanvasElement} elements
-   *  The canvas argument is canvas to render the game on. TODO -- document other elements.
-   * @param {Array.<LevelPlan>} levelPlans The plans for the levels.
-   * @param {object=} opt_config Optional game setting configuration.
+   * @param {HTMLElement} parentElement The parent element to contain the
+   *   elements used in the game.
+   * @param {object=} opt_config Optional game setting configuration. This
+   *   includes but is not limited to level data and game controls.
    */
 
-  function TunnelsGame(elements, levelPlans, opt_config) {
-    this.canvas = elements.canvas;
-    this.ctx = this.canvas.getContext('2d');
-    this.levelPlans = levelPlans;
+  function TunnelsGame(parentElement, opt_config) {
+    this.parentElement = parentElement;
     this.config = opt_config || this.config;
 
+    this.createElements();
     this.resizeCanvas();
     window.addEventListener('resize', this.resizeCanvas.bind(this));
     this.init();
