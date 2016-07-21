@@ -11,7 +11,7 @@
     this.parentElement = parentElement;
     this.config = opt_config || this.config;
 
-    this.createElements();
+    this.addInitialElements();
     this.resizeCanvas();
     window.addEventListener('resize', this.resizeCanvas.bind(this));
     this.init();
@@ -23,6 +23,14 @@
 
   TunnelsGame.prototype.config = {
 
+  };
+
+  TunnelsGame.prototype.addInitialElements = function() {
+    this.canvas = document.createElement('canvas');
+    this.canvas.width = this.canvasWidth;
+    this.canvas.height = this.canvasHeight;
+    this.ctx = this.canvas.getContext('2d');
+    this.parentElement.appendChild(this.canvas);
   };
 
   TunnelsGame.prototype.resizeCanvas = function() {
