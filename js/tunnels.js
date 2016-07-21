@@ -9,7 +9,8 @@
 
   function TunnelsGame(parentElement, opt_config) {
     this.parentElement = parentElement;
-    this.config = opt_config || this.config;
+    this.config = opt_config || this.getDefaultConfig();
+    this.input = new KeyboardInput(this.config.gameControls);
 
     this.addInitialElements();
     this.resizeCanvas();
@@ -21,8 +22,10 @@
   TunnelsGame.prototype.canvasHeight = 500;
   TunnelsGame.prototype.canvasWidthToHeightRatio = 8 / 5;
 
-  TunnelsGame.prototype.config = {
-
+  TunnelsGame.prototype.getDefaultConfig = function() {
+    return {
+      // FIXME -- Add the config data.
+    };
   };
 
   TunnelsGame.prototype.addInitialElements = function() {
