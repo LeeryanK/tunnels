@@ -34,6 +34,10 @@
     LEVEL_PLAY: 300
   };
 
+  TunnelsGame.prototype.backgroundScreenURLs = {
+    START_SCREEN: 'images/backgrounds/start.png'
+  };
+
   TunnelsGame.prototype.getDefaultConfig = function() {
     return {
       // FIXME -- Add the config data.
