@@ -70,9 +70,21 @@
 
   TunnelsGame.prototype.init = function() {
     this.level = 0;
-    this.startButton = this.createButton('Play', function() {
-
-    });
+    this.setBackground('START_SCREEN');
+    this.navOptions = this.createVerticalOptionList([
+      {
+        text: 'Play',
+        ifChosen: function() {
+          this.goToScreen('LEVEL_SELECT_0');
+        }.bind(this)
+      },
+      {
+        text: 'Help',
+        ifChosen: function() {
+          this.goToScreen('TUTORIAL_0');
+        }.bind(this)
+      }
+    ]);
   };
 
   /**
