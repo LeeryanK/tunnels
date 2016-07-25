@@ -38,6 +38,8 @@
     START_SCREEN: 'images/backgrounds/start.png'
   };
 
+  TunnelsGame.prototype.screenSetUp = {};
+
   TunnelsGame.prototype.getDefaultConfig = function() {
     return {
       // FIXME -- Add the config data.
@@ -91,13 +93,13 @@
       {
         text: 'Play',
         ifChosen: function() {
-          this.goToScreen('LEVEL_SELECT_0');
+          this.screenSetUp.levelSelect(0);
         }.bind(this)
       },
       {
         text: 'Help',
         ifChosen: function() {
-          this.goToScreen('TUTORIAL_0');
+          this.screenSetUp.tutorial(0);
         }.bind(this)
       }
     ]);
@@ -111,16 +113,6 @@
    * @return {void}
    */
   TunnelsGame.prototype.createVerticalOptionList = function(options) {
-
-  };
-
-  /**
-   * goToScreen() Goes to a certain screen and performs all the predefined
-   *   set up that is needed.
-   * @param {string} screen The screen to go to.
-   * @return {void}
-   */
-  TunnelsGame.prototype.goToScreen = function(screen) {
 
   };
 
