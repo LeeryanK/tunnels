@@ -22,6 +22,18 @@
   TunnelsGame.prototype.canvasHeight = 500;
   TunnelsGame.prototype.canvasWidthToHeightRatio = 8 / 5;
 
+  /**
+   * @enum Screens The screens there are.
+   * Use intervals of 100 because there may be many screens required for one
+   *   purpose (e.g., the tutorial).
+   */
+  TunnelsGame.prototype.Screens = {
+    START_SCREEN: 0,
+    TUTORIAL_0: 100,
+    LEVEL_SELECT_0: 200,
+    LEVEL_PLAY: 300
+  };
+
   TunnelsGame.prototype.getDefaultConfig = function() {
     return {
       // FIXME -- Add the config data.
