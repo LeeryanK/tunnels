@@ -105,6 +105,7 @@
    * @param {Array.<{text: string, ifChosen: function}>} options
    *   The list of buttons.
    * @return {void}
+   */
   TunnelsGame.prototype.createVerticalOptionList = function(options) {
 
   };
@@ -124,8 +125,10 @@
    * @param {string} screen Which screen's background image to use.
    * @return {void}
    */
-  TunnelsGame.prototype.setBackgroundImage = function() {
-
+  TunnelsGame.prototype.setBackgroundImage = function(screen) {
+    var image = document.createElement('img');
+    image.src = this.backgroundImageURLs[screen];
+    this.ctx.drawImage(image, 0, 0, 800, 500);
   };
 
   /**
