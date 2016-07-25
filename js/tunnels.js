@@ -82,7 +82,7 @@
 
   TunnelsGame.prototype.init = function() {
     this.level = 0;
-    this.setBackground('START_SCREEN');
+    this.setBackgroundImage('START_SCREEN');
     this.navOptions = this.createVerticalOptionList([
       {
         text: 'Play',
@@ -97,6 +97,35 @@
         }.bind(this)
       }
     ]);
+  };
+
+  /**
+   * createVerticalOptionList() Creates a vertical list of buttons that the
+   *   user can click or tap.
+   * @param {Array.<{text: string, ifChosen: function}>} options
+   *   The list of buttons.
+   * @return {void}
+  TunnelsGame.prototype.createVerticalOptionList = function(options) {
+
+  };
+
+  /**
+   * goToScreen() Goes to a certain screen and performs all the predefined
+   *   set up that is needed.
+   * @param {string} screen The screen to go to.
+   * @return {void}
+   */
+  TunnelsGame.prototype.goToScreen = function(screen) {
+
+  };
+
+  /**
+   * setBackgroundImage() Sets the background image of the game.
+   * @param {string} screen Which screen's background image to use.
+   * @return {void}
+   */
+  TunnelsGame.prototype.setBackgroundImage = function() {
+
   };
 
   /**
