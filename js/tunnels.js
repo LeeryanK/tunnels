@@ -127,6 +127,10 @@
     this.ctx.drawImage(image, 0, 0, 800, 500);
   };
 
+  TunnelsGame.prototype.playLevel = function() {
+
+  };
+
   /**
    * @constructor GameControls The key codes for which keys to which actions.
    * @param {up: {key: string, code: number}, down: {key: string, code: number,
@@ -279,4 +283,5 @@
       this.detectors[i] = false;
     }
   }
+
 })();
